@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Movie Page</title>
+{% if id%}
+  <h1>Viewing movie info for ID: {{ id }}!</h1>
+  <p>Movie: {{ movie_night.title }} <br> at Location: {{ movie_night.location }} <br> on Date: {{ movie_night.date }}</p> 
+
+  <br>
+  <form>
+    <p> RSVP? <input type="text" name="rsvp" placeholder="Your Name"></p>
+    <input type="submit" name="action" value="Submit RSVP!">
+  </form>
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script>
+  $("form").on( "submit", function( event ) {
+    event.preventDefault();
+    $.post('{{ url_for('fill_rsvp') }}', {rsvp: $('input[name="rsvp"]').val(), id: {{ id }} });
+  });
+  </script>
+{% else %}
+  <h1>No movie info located!</h1>
+{% endif %}

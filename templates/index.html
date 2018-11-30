@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Movie Knight!</title>
+<h1>Welcome to Movie Knight!</h1>
+
+<form method="POST"  action = "{{ url_for('create_night') }}">
+    <input type ="text" name="event" placeholder="Event Name">
+    <br>
+    <input type ="text" name="name" placeholder="Your Name">
+    <br>
+    <input type="text" name="movie" placeholder="Movie">
+    <input type="date" name="date" placeholder="Date">
+    <input type="text" name="location" placeholder="Location">
+    <input type="submit" name="action" value="Generate Link!">
+</form>
